@@ -1,0 +1,849 @@
+/* 0. SISTEMA DE DESIGN (CORES) */
+
+:root {
+    
+    /* Paleta de 8 Cores Principais */
+    --cor-fundo-pagina: #F8F9FA;     
+    --cor-primaria: #005A9C;          
+    --cor-primaria-hover: #004170;  
+    --cor-fundo-main: #FFFFFF;       
+    --cor-texto-principal: #212529;  
+    --cor-texto-secundario: #5A6268;
+    --cor-sucesso: #28a745;          
+    --cor-erro: #dc3545;             
+    
+    /* Esta é a cor "menos sutil" para botões de ação! */
+    --cor-destaque: #F0A83A;          
+    --cor-destaque-hover: #D9902C;    
+    
+    --cor-fundo-card: var(--cor-fundo-main);
+    --cor-borda: #DEE2E6;            
+    --cor-borda-input: #CED4DA;      
+    --cor-foco: #005A9C;            
+    --cor-fundo-modal-overlay: rgba(33, 37, 41, 0.7); 
+    
+    /* Cores de Estado: Desabilitado */
+    --cor-desabilitado-fundo: #E9ECEF;
+    --cor-desabilitado-texto: #ADB5BD;
+    --cor-desabilitado-borda: #CED4DA;
+}
+
+/* 1. ESTILOS GLOBAIS (Aplicados a todas as páginas)
+
+
+/*  Configurações Gerais */
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo-pagina);
+    font-family: Arial, sans-serif;
+}
+
+li, a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--cor-texto-principal);
+}
+
+/*  Cabeçalho Global - */
+header {
+    padding: 20px 15px;
+    background-color: var(--cor-primaria);
+    border-bottom: 3px solid var(--cor-borda);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    color: var(--cor-texto-principal);
+    font-family: 'Lobster', cursive;
+}
+
+/*  Rodapé Global  */
+footer {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: var(--cor-primaria);
+    border-bottom: 3px solid var(--cor-borda);
+}
+
+/* Duplicata de 'footer' do seu código original (deixada intacta) */
+footer {
+    padding: 0;
+    margin: 0;
+}
+
+---
+
+
+/* 2. ESTILOS DA PÁGINA: Início (index.html)
+
+
+/*  Navegação (index.html)  */
+.link a{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 10px;
+}
+
+.link a {
+  text-decoration: none;  
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.link a:hover {
+    transform: scale(1.03);
+}
+
+.link li a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+/*  Conteúdo Principal (index.html)  */
+main {
+    box-sizing: border-box;
+    background-color: var(--cor-fundo-main);
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Definição de fundo branco para os cards da index */
+.missao, .visao, .valores, .nossa-historia, .conquista, .maria, .joao, .ana, .lucas, .transparencia, .contato {
+    background-color: var(--cor-fundo-card);
+}
+
+/* Seção genérica (primeira definição) */
+section {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*  Seção: Boas-Vindas  */
+.secao-boas-vindas {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.secao-boas-vindas {
+    text-align: center;
+}
+
+.secao-boas-vindas img {
+    border-radius: 50%; 
+}
+
+/*  Seção: Missão, Visão, Valores  */
+.firstSection {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2px;
+    display: grid;
+}
+
+.missao {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.missao:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.visao {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.visao:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.valores {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.valores:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+/*  Seção: Nossa Jornada  */
+.jornada {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2px;
+    display: grid;
+}
+
+.nossa-historia {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.nossa-historia:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.conquista {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.conquista:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+/*  Seção: Nossa Equipe  */
+.nossa-equipe {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2px;
+    display: grid;
+}
+
+.nossa-equipe img {
+    border-radius: 3%;
+    border: 1px solid var(--cor-borda);
+}
+
+.maria {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.maria:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.joao {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.joao:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.ana {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.ana:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.lucas {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+}
+
+.lucas:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+/*  Seção: Transparência  */
+.transparencia {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.transparencia a:focus {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 2px;
+}
+
+.transparencia a:active {
+    transform: translateY(1px);
+    background-color: #8588e5; /* Cor mantida pois não estava na paleta */
+}
+
+.transparencia a.disabled {
+    background-color: var(--cor-desabilitado-fundo);
+    color: var(--cor-desabilitado-texto);
+    border-color: var(--cor-desabilitado-borda);
+    pointer-events: none; 
+    cursor: not-allowed; 
+}
+
+/*  Seção: Contato  */
+.contato {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+---
+
+
+/* 3. ESTILOS DA PÁGINA: Projetos (projetos.html)
+
+
+/*  Cabeçalho (projetos.html) - */
+#projeto {
+    box-sizing: border-box;
+    display: block;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.link-projeto {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 10px;
+}
+
+.link-projeto:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.link-projeto li a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+.logo img {
+    border-radius: 50%;
+}
+
+/*  Conteúdo Principal (projetos.html)  */
+
+/* Seção genérica (segunda definição) */
+section {
+    box-sizing: border-box;
+    display: grid;
+    grid-gap: 2px;
+    padding-left: 10px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.como-ajudar {
+    background-color: var(--cor-fundo-card);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.conheca-projetos {
+    box-sizing: border-box;
+    background-color: var(--cor-fundo-card);
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.conheca-projetos a:hover {
+    transform: scale(1.03);
+    display: inline-block;
+    color: var(--cor-texto-secundario);
+}
+
+/*  Projeto: Campanha de Castração  */
+#saude {
+    box-sizing: border-box;
+    display: grid;
+    gap: 5px;
+    background-color: var(--cor-fundo-card);
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin: 0; 
+    border-bottom: 1px solid var(--cor-borda); 
+}
+
+#saude video,
+#saude img {
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-texto-principal);
+    border-radius: 3%;
+    align-items: center;
+}
+
+#saude img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#saude video:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#saude a:hover {
+    color: var(--cor-texto-secundario);
+    transform: scale(1.03);
+}
+
+/*  Projeto: Reforma do Gatil  */
+#infraestrutura {
+    box-sizing: border-box;
+    background-color: var(--cor-fundo-card);
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin: 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+#infraestrutura img {
+    border: 1px solid var(--cor-borda);
+    border-radius: 3%;
+}
+
+#infraestrutura a {
+    border-bottom: 2px solid var(--cor-borda);
+}
+
+#infraestrutura img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#infraestrutura a:hover {
+    transform: scale(1.1);
+}
+
+#infraestrutura a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+/*  Projeto: Adoção (Animais)  */
+#adocao {
+    box-sizing: border-box;
+    display: inline;
+    background-color: var(--cor-fundo-card);
+    padding: 20px;
+    margin: 0;
+}
+
+.animal {
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--cor-borda);
+    display: inline-block;
+}
+
+.animal img {
+    border-radius: 3%;
+    border: 1px solid var(--cor-borda);
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.animal img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.animal a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+.animal a {
+    margin-bottom: 5px;
+}
+
+/*  Seção: Voluntário  */
+#voluntario {
+    box-sizing: border-box;
+    display: grid;
+    padding-left: 20px;
+    background-color: var(--cor-fundo-card);
+    margin: 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+#voluntario img {
+    border-radius: 3%;
+    border: 1px solid var(--cor-borda);
+}
+
+#voluntario img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#voluntario a {
+    border-bottom: 1px solid var(--cor-borda);
+    font-family: 'Courier New', monospace;
+}
+
+#voluntario a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+/*  Seção: Doação (Duplicata de #adocao)  */
+#adocao {
+    box-sizing: border-box;
+    display: grid;
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid var(--cor-borda);
+    background-color: var(--cor-fundo-card);
+}
+
+#adocao img {
+    border-radius: 3%;
+    border: 1px solid var(--cor-borda);
+}
+
+#adocao img:hover {
+    transform: scale(1.1);
+}
+
+#adocao a {
+    border-bottom: 1px solid var(--cor-borda);
+    font-family: 'Courier New', monospace;
+}
+
+#adocao a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+/*  Seção: Blog  */
+#blog {
+    box-sizing: border-box;
+    display: grid;
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+#blog a {
+    border-bottom: 1px solid var(--cor-borda);
+    font-family: 'Courier New', monospace;
+}
+
+#blog a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+/*  Seção: Comunicado  */
+#comunicado {
+    box-sizing: border-box;
+    display: grid;
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+#comunicado a {
+    border-bottom: 1px solid var(--cor-borda);
+    font-family: 'Courier New', monospace;
+}
+
+#comunicado a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+---
+
+
+/* 4. ESTILOS DA PÁGINA: Cadastro (cadastro.html)
+
+
+/*  Cabeçalho (cadastro.html)  */
+#cadastro {
+    box-sizing: border-box;
+    display: block;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+#cadastro img {
+    border-radius: 50%;
+}
+
+.link-cadastro {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 10px;
+}
+
+.link-cadastro a {
+  display: inline-block;
+  transition: transform 0.1s;
+}
+
+.link-cadastro a:hover {
+  transform: scale(1.1);
+  color: var(--cor-texto-secundario);
+}
+
+/*  Rodapé (cadastro.html)  */
+.footer-cadastro {
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin: 0;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.footer-cadastro a:hover {
+    color: var(--cor-texto-secundario);
+}
+
+/*  Formulário (cadastro.html)  */
+.main-section {
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 25px;
+    background-color: var(--cor-fundo-card); 
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+}
+
+.main-section h1,
+.main-section p {
+    text-align: center;
+}
+
+fieldset {
+    border: 2px solid var(--cor-borda);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.2;
+    padding: 0 10px;
+}
+
+/* Campos do Formulário  */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid var(--cor-borda-input);
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 16px;
+}
+
+fieldset div {
+    margin-bottom: 10px;
+}
+
+/*  Validação do Formulário  */
+input:required:invalid,
+select:required:invalid {
+    border-color: var(--cor-erro);
+}
+
+input:valid,
+select:valid {
+    border-color: var(--cor-sucesso);
+}
+
+/*  Botão do Formulário */
+.meu-botao {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-principal);
+    border: 2px solid var(--cor-borda);
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.meu-botao:hover {
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+}
+
+.meu-botao:focus {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 2px;
+}
+
+.meu-botao:active {
+    transform: translateY(1px);
+}
+
+
+
+
+/* 5. COMPONENTES GLOBAIS (JavaScript)
+
+
+/*  Mensagem de Erro (JS)  */
+.error-message {
+    color: var(--cor-erro);
+    font-size: 0.9em;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+
+/*  Modal de Feedback (JS) */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--cor-fundo-modal-overlay);
+    opacity: 0; visibility: hidden; transition: all 0.3s ease;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.modal-overlay:target { 
+    opacity: 1; 
+    visibility: visible; 
+}
+
+.modal-box { 
+    background-color: var(--cor-fundo-card); 
+    padding: 30px; 
+    border-radius: 8px; 
+    text-align: center; 
+}
+
+.modal-close-button { 
+    display: inline-block; 
+    margin-top: 15px; 
+    padding: 10px 25px; 
+    background-color: var(--cor-primaria-hover); 
+    color: var(--cor-texto-principal); 
+    text-decoration: none; 
+    border-radius: 5px; 
+}
+
+
+/* 6. COMPONENTE: BADGES E TAGS */
+
+
+.tag {
+    display: inline-block;
+    padding: 0.25em 0.6em; 
+    font-size: 0.875rem;   
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem; 
+    color: var(--cor-fundo-main); 
+}
+
+/* Modificadores de Cor */
+.tag-saude {
+    background-color: var(--cor-sucesso);
+}
+
+.tag-infra {
+    background-color: var(--cor-primaria); 
+}
+
+.tag-adocao {
+    background-color: var(--cor-destaque); 
+}
+
+/* =================================================================== */
+/* 7. COMPONENTE: MENU RESPONSIVO (HAMBÚRGUER)
+/* =================================================================== */
+
+#btn-mobile {
+    display: none; /* Escondido no desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--cor-texto-principal);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Media Query: Estilos para Telas Pequenas (Mobile) --- */
+@media (max-width: 768px) {
+    
+    /* Mostra o botão hambúrguer */
+    #btn-mobile {
+        display: block;
+        z-index: 1001; /* Garante que fique sobre outros elementos */
+    }
+
+    /* Esconde o menu de links */
+    .link, .link-projeto, .link-cadastro {
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: 85px; /* Altura do seu header (ajuste se necessário) */
+        left: 0;
+        background-color: var(--cor-fundo-card);
+        border-bottom: 1px solid var(--cor-borda);
+        padding: 1rem 0;
+        z-index: 1000;
+    }
+    
+    /* Faz os links do menu ficarem verticais */
+    .link li, .link-projeto li, .link-cadastro li {
+        display: block;
+        text-align: center;
+        margin: 1.5rem 0;
+    }
+
+    /* --- ESTADO ATIVO (quando o menu está aberto) --- */
+
+    /* Mostra o menu quando a classe .nav-active for adicionada */
+    .nav-active #menu-links {
+        display: block;
+    }
+
+    /* Animação do "X" do hambúrguer */
+    .nav-active .hamburger-bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+    .nav-active .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-active .hamburger-bar:nth-child(3) {
+        transform: rotate(45deg) translate(-7px, -7px);
+    }
+}
