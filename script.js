@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função que cria e mostra o elemento de erro
     function showError(inputElement, message) {
+        inputElement.setAttribute('aria-invalid', 'true');
         const errorElement = document.createElement('span');
         errorElement.className = 'error-message';
         errorElement.textContent = message;
@@ -143,8 +144,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função que limpa os erros da tela
     function clearAllErrors(formElement) {
-        const existingErrors = formElement.querySelectorAll('.error-message');
-        existingErrors.forEach(error => error.remove());
-    }
+    const existingErrors = formElement.querySelectorAll('.error-message');
+
+    existingErrors.forEach(error => error.remove());
+
+    const invalidInputs = formElement.querySelectorAll('[aria-invalid="true"]');
+
+    invalidInputs.forEach(input => {
+        input.removeAttribute('aria-invalid');
+    });
+}
 
 }); 
